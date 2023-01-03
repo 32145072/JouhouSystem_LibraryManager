@@ -15,7 +15,7 @@ public class App {
         BookManager bm = new BookManager();
         // message
         String message = """
-                1~Xまでの番号を入力してください。
+                0~Xまでの番号を入力してください。
                 0を入力するとプログラムを終了します。
                 1 : 本の登録
                 2 : 本の削除
@@ -33,6 +33,7 @@ public class App {
 
             // プログラムの終了
             if (input == 0){
+                System.out.println("システムを終了します");
                 isroop = false;
             }
             // 本の登録
@@ -43,17 +44,24 @@ public class App {
                 int register_id = scanner.nextInt();
 
                 System.out.println("book_title > ");
-                String register_title = scanner.nextLine();
+                String register_title = scanner.next();
 
                 System.out.println("book_author > ");
-                String register_author = scanner.nextLine();
+                String register_author = scanner.next();
 
                 System.out.println("book_category > ");
-                String register_category = scanner.nextLine();
+                String register_category = scanner.next();
 
                 // BookManagerクラスのregisterメソッドを走らせる
                 bm.register(register_id, register_title, register_author, false, register_category);
 
+                // 登録完了
+                System.out.println("");
+                System.out.println("=======================================");
+                System.out.println("以下の本の登録が完了しました");
+                System.out.println("id:"+register_id+" "+"タイトル:"+register_title+" "+"著者:"+register_author+" "+"カテゴリー:"+" "+register_category);
+                System.out.println("=======================================");
+                System.out.println("");
             }
         }
         scanner.close();
