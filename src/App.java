@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.UUID;
 // GitHub https://github.com/32145072/JouhouSystem_LibraryManager
 
 public class App {
@@ -19,6 +19,7 @@ public class App {
                 2 : 本の削除
                 3 : 登録されている本の一覧表示
                 4 : 蔵書検索
+                5 : 
                 0 : プログラムの終了
                 """;
 
@@ -38,52 +39,43 @@ public class App {
             else if (input == 1) {
                 // 登録する本の情報入力
 
-                System.out.println("Book_ID > ");
-                int register_id = scanner.nextInt();
+                String register_id = UUID.randomUUID().toString();
 
-                System.out.println("book_title > ");
+                System.out.println("input title > ");
                 String register_title = scanner.next();
 
-                System.out.println("book_author > ");
+                System.out.println("input author > ");
                 String register_author = scanner.next();
 
-                System.out.println("book_category > ");
+                System.out.println("input category > ");
                 String register_category = scanner.next();
 
                 // BookManagerクラスのregisterメソッドを走らせる
                 bm.register(register_id, register_title, register_author, false, register_category);
-
-                // 登録完了
-                System.out.println("");
-                System.out.println("=======================================");
-                System.out.println("以下の本の登録が完了しました");
-                System.out.println("id:"+register_id+" "+"タイトル:"+register_title+" "+"著者:"+register_author+" "+"カテゴリー:"+" "+register_category);
-                System.out.println("=======================================");
-                System.out.println("");
             }
             // 本の削除
             else if (input == 2){
-                
+                System.out.println("削除する本のIDを入力してください");
+                String delete_ID = scanner.next();
+                bm.delete(delete_ID);
             }
             else if (input == 3){
                 // 登録されている本の一覧表示
-                Libraly.readcsv();
-                
+                lib.all();
             }
             else if (input == 4){
                 // 蔵書検索
                 bs.title_searcher();
+            }
+            else if (input == 5){
+                lib.amount();
             }
             else{
                 System.out.println("入力が不正です");
             }
         }
         scanner.close();
-
-        
-        
-     
-        
+             
     }
     
 }

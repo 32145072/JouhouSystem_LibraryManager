@@ -1,11 +1,11 @@
 public class Book {
-    Integer id;
+    String id;
     String title;
     String author;
     boolean lend = false;
     String category;
 
-    public Book(Integer id,String title,String author,boolean lend,String category) {
+    public Book(String id,String title,String author,boolean lend,String category) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -14,5 +14,5 @@ public class Book {
     }
     public void islend(){
         //変数lendの状態を返す
-    } 
+    }
 }
