@@ -1,25 +1,24 @@
 import java.util.Scanner;
 
-public class App {
-    public static void main(String[] args) throws Exception {
-        // Book a = new Book(1,"Title","Author",false,"human");
-        // String str1 = a.book_title;
-        // String str2 = a.author;
-        // boolean str3 = a.lend;
-        // System.out.println(str1);
-        // System.out.println(str2);
-        // System.out.println(str3);
+// GitHub https://github.com/32145072/JouhouSystem_LibraryManager
 
-        // インスタンス作成
+public class App {
+    // インスタンス作成
+
+    public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         BookManager bm = new BookManager();
+        BookSearcher bs = new BookSearcher();
+        Libraly lib = new Libraly();
+        
         // message
         String message = """
                 0~Xまでの番号を入力してください。
                 0を入力するとプログラムを終了します。
                 1 : 本の登録
                 2 : 本の削除
-                ......
+                3 : 登録されている本の一覧表示
+                4 : 蔵書検索
                 0 : プログラムの終了
                 """;
 
@@ -29,7 +28,6 @@ public class App {
             System.out.println(message);
             System.out.print("Input > ");
             int input = scanner.nextInt();
-            System.out.println(input);
 
             // プログラムの終了
             if (input == 0){
@@ -62,6 +60,22 @@ public class App {
                 System.out.println("id:"+register_id+" "+"タイトル:"+register_title+" "+"著者:"+register_author+" "+"カテゴリー:"+" "+register_category);
                 System.out.println("=======================================");
                 System.out.println("");
+            }
+            // 本の削除
+            else if (input == 2){
+                
+            }
+            else if (input == 3){
+                // 登録されている本の一覧表示
+                Libraly.readcsv();
+                
+            }
+            else if (input == 4){
+                // 蔵書検索
+                bs.title_searcher();
+            }
+            else{
+                System.out.println("入力が不正です");
             }
         }
         scanner.close();
