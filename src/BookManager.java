@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class BookManager{
-    public void register(String book_id,String book_title,String author,boolean lend,String category) throws IOException{
+    public void register(String book_id,String book_title,String author,String category,boolean lend) throws IOException{
         // インスタンス作成
         // Book book = new Book(book_id,book_title,author,lend,category);
         // csvに書き込む
@@ -12,7 +12,7 @@ public class BookManager{
         String file_name = "..\\res\\Libraly.csv";  
         try {
             FileWriter fw = new FileWriter(file_name,true);
-            fw.append(book_id + "," + book_title + "," + author + "," + lend + "," + category);
+            fw.append(book_id + "," + book_title + "," + author + "," + category + "," + lend );
             fw.append("\n");
             fw.flush();
             fw.close();
@@ -30,7 +30,7 @@ public class BookManager{
     public void delete(String delete_ID){
         // IDに一致する本の情報をLibraly.csvから削除
         String file_name = "..\\res\\Libraly.csv";
-        ArrayList<String> book_list = Libraly.book_List();
+        ArrayList<String> book_list = Libraly.bookList();
         try {
             FileWriter fw = new FileWriter(file_name);
             for(int i=0; i<book_list.size(); i++){
@@ -47,5 +47,9 @@ public class BookManager{
         } catch(IOException e) {
             e.printStackTrace();
         }
+        System.out.println("=======================================================================================================");
+        System.out.println("以下のIDの本を蔵書から削除しました");
+        System.out.println("id:"+delete_ID);
+        System.out.println("=======================================================================================================");
     }
 }

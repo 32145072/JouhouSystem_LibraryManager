@@ -1,11 +1,11 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.List;
 import java.util.ArrayList;
 public class Libraly{
 
-    public static ArrayList<String> book_List() {
+    //本の一覧リストを返す
+    public static ArrayList<String> bookList() {
         BufferedReader br = null;
         // String[][] book_list =  new String[2][];
         ArrayList<String> book_list = new ArrayList<>();
@@ -31,11 +31,12 @@ public class Libraly{
     
     }
 
+    //登録されている本の情報を一覧表示
     public void all(){
         System.out.println("");
         System.out.println("全ての蔵書を表示します．");
         System.out.println("=================================================");
-        System.out.println("ID タイトル 著者 貸出 カテゴリ");
+        System.out.println("ID タイトル 著者 カテゴリ 貸出 (ユーザID)");
         BufferedReader br = null;
         String file_name = "..\\res\\Libraly.csv"; // 入力ファイル
         try {
@@ -65,11 +66,9 @@ public class Libraly{
         System.out.println("=================================================");
         }
 
+    //本の冊数を表示する
     public void amount(){
-        ArrayList<String> bl = book_List();
-        System.out.print(bl.size());
+        System.out.println("合計:"+bookList().size()+"冊");
     }
 }
     
-
-//本の冊数を表示する
