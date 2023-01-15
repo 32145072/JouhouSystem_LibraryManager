@@ -126,7 +126,7 @@ public class App {
                     }
                     else if(select_search == 7) {
                         // 本を借りているユーザを検索
-                        System.out.println("True/Falseを入力してください:");
+                        System.out.println("true/falseを入力してください:");
                         String lend_search = scanner.next(); 
                         us.lend_searcher(lend_search);
                     }
