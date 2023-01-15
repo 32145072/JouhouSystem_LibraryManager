@@ -16,7 +16,7 @@ public class App {
         
         // message
         String message = """
-                0~Xまでの番号を入力してください。
+                0~7までの番号を入力してください。
                 0を入力するとプログラムを終了します。
                 1 : 本の登録
                 2 : 本の削除
@@ -72,7 +72,7 @@ public class App {
             else if (input == 4){
                 // 検索
                 String select_searcher_message = """
-                        0~5までの番号を入力してください。
+                        0~8までの番号を入力してください。
                         1 : IDで検索
                         2 : タイトルで検索
                         3 : 著者で検索
