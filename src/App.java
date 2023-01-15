@@ -100,13 +100,13 @@ public class App {
                         // タイトル検索
                         System.out.println("検索する本のタイトルを入力してください:");
                         String title_search = scanner.next(); 
-                        bs.id_searcher(title_search);
+                        bs.title_searcher(title_search);
                     }
                     else if(select_search == 3){
                         // 著者検索
                         System.out.println("検索する著者を入力してください:");
                         String author_search = scanner.next(); 
-                        bs.id_searcher(author_search);
+                        bs.author_searcher(author_search);
                     }
                     else if(select_search == 4){
                         // 貸出した本を検索
@@ -117,7 +117,7 @@ public class App {
                         // カテゴリー検索
                         System.out.println("検索するカテゴリーを入力してください:");
                         String category_search = scanner.next(); 
-                        bs.id_searcher(category_search);
+                        bs.category_searcher(category_search);
                     }
                     else if(select_search == 6) {
                         System.out.println("ユーザIDを入力:");
@@ -148,11 +148,19 @@ public class App {
             }
             else if (input == 6){
                 // 貸出
-                bl.lend("73a664fd-6e35-49b8-b18f-d93b42bad5e0","429671cd-a04f-424d-8ebe-0d1901a8fbf5");
+                System.out.println("貸し出す本のIDを入力してください");
+                String lend_bookID = scanner.next(); 
+                System.out.println("本を貸し出す人のIDを入力してください");
+                String lend_userID = scanner.next(); 
+                bl.lend(lend_bookID,lend_userID);
             }
             else if (input == 7){
                 // 返却
-                bl.bookReturn("73a664fd-6e35-49b8-b18f-d93b42bad5e0", "429671cd-a04f-424d-8ebe-0d1901a8fbf5");
+                System.out.println("返却する本のIDを入力してください");
+                String return_bookID = scanner.next(); 
+                System.out.println("返却した人のIDを入力してください");
+                String return_userID = scanner.next(); 
+                bl.bookReturn(return_bookID, return_userID);
             }
             else{
                 System.out.println("入力が不正です");
