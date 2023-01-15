@@ -2,14 +2,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-public class Libraly{
+public class Library{
 
     //本の一覧リストを返す
     public static ArrayList<String> bookList() {
         BufferedReader br = null;
         // String[][] book_list =  new String[2][];
         ArrayList<String> book_list = new ArrayList<>();
-        String file_name = "..\\res\\Libraly.csv"; // 入力ファイル
+        String file_name = "..\\res\\Library.csv"; // 入力ファイル
         try {
         File file = new File(file_name);
         br = new BufferedReader(new FileReader(file));
@@ -38,7 +38,7 @@ public class Libraly{
         System.out.println("=================================================");
         System.out.println("ID タイトル 著者 カテゴリ 貸出 (ユーザID)");
         BufferedReader br = null;
-        String file_name = "..\\res\\Libraly.csv"; // 入力ファイル
+        String file_name = "..\\res\\Library.csv"; // 入力ファイル
         try {
         File file = new File(file_name);
         br = new BufferedReader(new FileReader(file));

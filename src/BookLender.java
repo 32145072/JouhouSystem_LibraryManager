@@ -13,25 +13,25 @@ public class BookLender{
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         SimpleDateFormat date_f = new SimpleDateFormat("yyyy/MM/dd");
-        ArrayList<String> book_list = Libraly.bookList();
+        ArrayList<String> book_list = Library.bookList();
         ArrayList<String> user_list = User.userList();
         String file_name_user = "..\\res\\User.csv";
-        String file_name_libraly = "..\\res\\Libraly.csv";
+        String file_name_library = "..\\res\\Library.csv";
         String today = date_f.format(date);
         calendar.add(Calendar.DATE, 7);
         String limit = date_f.format(calendar.getTime());
 
-        // Libraly.csv => falseからtrueに書き換え
+        // Library.csv => falseからtrueに書き換え
         // User.csv => 貸出をfalseからtrueに変更。貸出情報を加える
         // ID 借り日　返却期限
         
         try {
-            FileWriter fw_libraly = new FileWriter(file_name_libraly);
+            FileWriter fw_Library = new FileWriter(file_name_library);
             FileWriter fw_user = new FileWriter(file_name_user);
             for(int i=0; i<book_list.size(); i++){
                 if(book_list.get(i).split(",")[0].equals(book_ID)){
-                    fw_libraly.append(book_list.get(i).replace("false", "true,"+user_ID));
-                    fw_libraly.append("\n");
+                    fw_Library.append(book_list.get(i).replace("false", "true,"+user_ID));
+                    fw_Library.append("\n");
                     for(int j=0; j<user_list.size(); j++){
                         if(user_list.get(j).split(",")[0].equals(user_ID)){
                             fw_user.append(user_list.get(j).replace("false", "true"));
@@ -43,12 +43,12 @@ public class BookLender{
                         }
                     }
                 } else {
-                    fw_libraly.append(book_list.get(i));
-                    fw_libraly.append("\n");
+                    fw_Library.append(book_list.get(i));
+                    fw_Library.append("\n");
                 }
             }
-            fw_libraly.flush();
-            fw_libraly.close();
+            fw_Library.flush();
+            fw_Library.close();
             fw_user.flush();
             fw_user.close();
         } catch(IOException e) {
@@ -58,22 +58,22 @@ public class BookLender{
     
     public void bookReturn(String book_ID, String user_ID){
         
-        ArrayList<String> book_list = Libraly.bookList();
+        ArrayList<String> book_list = Library.bookList();
         ArrayList<String> user_list = User.userList();
         String file_name_user = "..\\res\\User.csv";
-        String file_name_libraly = "..\\res\\Libraly.csv";
+        String file_name_Library = "..\\res\\Library.csv";
 
-        // Libraly.csv => trueからfalseに書き換え
+        // Library.csv => trueからfalseに書き換え
         // User.csv => 貸出をtrueからfalseに変更。貸出情報を削除
         // 貸出情報 : ID 借り日　返却期限
         
         try {
-            FileWriter fw_libraly = new FileWriter(file_name_libraly);
+            FileWriter fw_Library = new FileWriter(file_name_Library);
             FileWriter fw_user = new FileWriter(file_name_user);
             for(int i=0; i<book_list.size(); i++){
                 if(book_list.get(i).split(",")[0].equals(book_ID)){
-                    fw_libraly.append(book_list.get(i).replace("true,"+user_ID, "false"));
-                    fw_libraly.append("\n");
+                    fw_Library.append(book_list.get(i).replace("true,"+user_ID, "false"));
+                    fw_Library.append("\n");
                     for(int j=0; j<user_list.size(); j++){
                         if(user_list.get(j).split(",")[0].equals(user_ID)){
                             String[] list = user_list.get(j).replace("true", "false").split(",");
@@ -85,12 +85,12 @@ public class BookLender{
                         }
                     }
                 } else {
-                    fw_libraly.append(book_list.get(i));
-                    fw_libraly.append("\n");
+                    fw_Library.append(book_list.get(i));
+                    fw_Library.append("\n");
                 }
             }
-            fw_libraly.flush();
-            fw_libraly.close();
+            fw_Library.flush();
+            fw_Library.close();
             fw_user.flush();
             fw_user.close();
         } catch(IOException e) {

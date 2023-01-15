@@ -9,7 +9,7 @@ public class App {
         Scanner scanner = new Scanner(System.in,"shift_jis");
         BookManager bm = new BookManager();
         BookSearcher bs = new BookSearcher();
-        Libraly lib = new Libraly();
+        Library lib = new Library();
         User user = new User();
         BookLender bl = new BookLender();
         UserSearcher us = new UserSearcher();
