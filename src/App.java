@@ -3,9 +3,8 @@ import java.util.UUID;
 // GitHub https://github.com/32145072/JouhouSystem_LibraryManager
 
 public class App {
-    // インスタンス作成
-
     public static void main(String[] args) throws Exception {
+        // インスタンス作成
         Scanner scanner = new Scanner(System.in,"shift_jis");
         BookManager bm = new BookManager();
         BookSearcher bs = new BookSearcher();

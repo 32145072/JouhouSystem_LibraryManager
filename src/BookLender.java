@@ -54,6 +54,11 @@ public class BookLender{
         } catch(IOException e) {
             e.printStackTrace();
         }
+        System.out.println();
+        System.out.println("=========================================================");
+        System.out.println("UserID: "+user_ID+"に"+"BookID: "+book_ID+"を貸し出しました");
+        System.out.println("=========================================================");
+        System.out.println();
     }
     
     public void bookReturn(String book_ID, String user_ID){
@@ -96,5 +101,10 @@ public class BookLender{
         } catch(IOException e) {
             e.printStackTrace();
         }
+        System.out.println();
+        System.out.println("=========================================================");
+        System.out.println("UserID: "+user_ID+"が"+"BookID: "+book_ID+"を返却しました");
+        System.out.println("=========================================================");
+        System.out.println();
     }
 }
